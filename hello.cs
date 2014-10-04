@@ -6,7 +6,7 @@ class SampleListener : Listener {
 
     private void SafeWriteLine (String line) {
         lock (thisLock) {
-            ConsoleWriteLine(line);
+            Console.WriteLine(line);
         }
     } 
 
