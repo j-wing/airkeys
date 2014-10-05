@@ -13,13 +13,13 @@ function OnCollisionEnter(collision : Collision){
 	if(collision.collider.tag == "Fingertip"){
 	var speed = collision.relativeVelocity.magnitude;
 	
-	var norm_speed = speed/30;
+	var norm_speed = speed/15;
 	
 	if (norm_speed >= 1) {
 		norm_speed = 1;
 	}
 	
-	if (norm_speed >= 0.1) {
+	if (norm_speed >= 0.05) {
 		audio.PlayOneShot(audio.clip, norm_speed);
 	}
 	

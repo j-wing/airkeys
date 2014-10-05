@@ -16,9 +16,12 @@ function OnCollisionEnter(collision : Collision){
 	if (norm_speed >= 1) {
 		norm_speed = 1;
 	}
-	
-	audio.Play();
-	audio.volume = norm_speed;
+//	var t = Time.time;
+//	lastLoopStartTime = t;
+//
+//	audio.Play();
+//	audio.volume = norm_speed;
+	audio.PlayOneShot(audio.clip, norm_speed);
 	
 	
 //	volumes.Push(norm_speed);
@@ -28,26 +31,26 @@ function OnCollisionEnter(collision : Collision){
 function OnCollisionExit(){
 	// while pressed, sustain note
 	//FadeAudio(0);
-	var t = Time.time;
-	lastLoopStartTime = t;
-//	audio.volume = volumes.Shift();
-	FadeOut(t);
+//	var t = Time.time;
+//	lastLoopStartTime = t;
+////	audio.volume = volumes.Shift();
+//	FadeOut(t);
 	//audio.Stop();
 }
 
 // for fadein:  fadeType = 1
 // for fadeout: fadeType = 0
-function FadeOut(startTime) {
-	Debug.Log("start: " + audio.volume);
-	var decrement = audio.volume / 25;
-	for (var i=0; i < 25; i++) {
-		if (lastLoopStartTime != startTime) {
-			Debug.Log("llst: " + lastLoopStartTime + "; st: " + startTime); 
-			break;
-		}
-		audio.volume -= decrement;
-		Debug.Log("i is: " + i + ", vol is: " + audio.volume);
-		yield new WaitForSeconds(0.01);
-	}
-	Debug.Log("end: " + audio.volume);
-}	
+//function FadeOut(startTime) {
+//	Debug.Log("start: " + audio.volume);
+//	var decrement = audio.volume / 25;
+//	for (var i=0; i < 25; i++) {
+//		if (lastLoopStartTime != startTime) {
+//			Debug.Log("llst: " + lastLoopStartTime + "; st: " + startTime); 
+//			break;
+//		}
+//		audio.volume -= decrement;
+//		Debug.Log("i is: " + i + ", vol is: " + audio.volume);
+//		yield new WaitForSeconds(0.01);
+//	}
+//	Debug.Log("end: " + audio.volume);
+//}	
